@@ -1,0 +1,173 @@
+/* ==========================================================================
+   ABS Corporate Services — About page
+   Extends style.css (tokens, header/footer, hero, buttons, .section-grid,
+   .reveal-up/.reveal-image, .uae-section, .contact-section are reused as-is).
+   This file styles only the sections unique to the About page.
+   ========================================================================== */
+
+.desktop-nav a.is-current { color: var(--gold); }
+
+/* ---------- 01 Our story ---------- */
+.story-section { border-top: 1px solid var(--line); padding-top: 120px; padding-bottom: 140px; }
+.story-grid { display: grid; grid-template-columns: 1fr .82fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+.story-copy p { color: var(--muted); font-size: 15px; line-height: 1.9; max-width: 480px; margin: 0; }
+.story-copy p + p { margin-top: 24px; }
+.story-visual { position: relative; height: 460px; padding-left: 34px; }
+.vertical-label { position: absolute; left: 0; top: 0; bottom: 0; writing-mode: vertical-rl; transform: rotate(180deg); text-transform: uppercase; letter-spacing: .18em; font-size: 10px; font-weight: 600; color: var(--gold); }
+.story-image-wrap { position: absolute; inset: 0 0 0 34px; overflow: hidden; }
+.story-image-wrap img { width: 100%; height: 112%; object-fit: cover; filter: saturate(.62); }
+
+/* ---------- 02 Established on experience ---------- */
+.experience-section { border-top: 1px solid var(--line); padding-top: 118px; padding-bottom: 140px; }
+.experience-content .section-heading-row { margin-bottom: 90px; }
+.exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+.exp-item { padding: 40px 0; border-top: 1px solid var(--line); }
+.exp-number { display: block; font-family: var(--display); font-weight: 600; font-size: clamp(58px, 6vw, 96px); letter-spacing: -.05em; color: var(--gold-light); line-height: 1; }
+.exp-item h3 { text-transform: uppercase; font-size: 15px; letter-spacing: .06em; margin: 22px 0 14px; }
+.exp-item p { color: var(--muted); font-size: 13px; line-height: 1.85; max-width: 360px; margin: 0; }
+
+/* ---------- 03 The ABS difference ---------- */
+.difference-section { background: #eceae5; padding-top: 118px; padding-bottom: 140px; }
+.difference-content .section-heading-row { margin-bottom: 70px; }
+.diff-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(40px, 6vw, 90px); align-items: start; }
+.diff-left { display: flex; flex-direction: column; gap: 48px; }
+.diff-statement { font-family: var(--display); font-weight: 500; letter-spacing: -.03em; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.28; color: var(--ink); margin: 0; }
+.diff-statement em { font-family: var(--serif); font-style: italic; font-weight: 500; color: var(--gold); }
+.diff-image { position: relative; height: 320px; overflow: hidden; }
+.diff-image img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.65); }
+.diff-image::after { content: ''; position: absolute; inset: 0; border: 1px solid rgba(185,150,79,.5); pointer-events: none; }
+.diff-list { border-top: 1px solid #c9c5bc; }
+.diff-item { border-bottom: 1px solid #c9c5bc; position: relative; }
+.diff-item summary { display: grid; grid-template-columns: 44px 1fr 26px; align-items: center; gap: 16px; padding: 26px 0; cursor: pointer; list-style: none; transition: padding .3s ease; }
+.diff-item summary::-webkit-details-marker { display: none; }
+.diff-item summary::marker { content: ''; }
+.diff-item:hover summary { padding-left: 10px; }
+.diff-index { color: var(--gold); font-family: var(--display); font-size: 13px; }
+.diff-title { font-family: var(--display); text-transform: uppercase; font-size: 16px; letter-spacing: .04em; font-weight: 600; transition: color .25s; }
+.diff-item:hover .diff-title { color: var(--gold); }
+.diff-icon { position: relative; width: 16px; height: 16px; justify-self: end; }
+.diff-icon::before, .diff-icon::after { content: ''; position: absolute; background: var(--charcoal); transition: transform .3s ease, background .3s ease; }
+.diff-icon::before { top: 50%; left: 0; width: 16px; height: 1px; transform: translateY(-50%); }
+.diff-icon::after { left: 50%; top: 0; width: 1px; height: 16px; transform: translateX(-50%); }
+.diff-item[open] .diff-icon::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+.diff-item:hover .diff-icon::before, .diff-item:hover .diff-icon::after { background: var(--gold); }
+.diff-body { margin: 0 0 28px; padding-left: 60px; padding-right: 20px; color: var(--muted); font-size: 13px; line-height: 1.85; max-width: 460px; overflow: hidden; animation: diffFade .35s ease; }
+@keyframes diffFade { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+/* When about.js enhances the accordion with a smooth GSAP height tween, the
+   CSS keyframe above is switched off so the two don't fight over opacity. */
+.js-enhanced-accordion .diff-body { animation: none; }
+
+/* ---------- 04 From setup to continuity ---------- */
+.lifecycle-section { border-top: 1px solid var(--line); padding-top: 112px; padding-bottom: 145px; }
+.lifecycle-content .section-heading-row { margin-bottom: 85px; }
+.lifecycle-track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; position: relative; }
+.lifecycle-line { position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: var(--gold); transform-origin: left; }
+.lifecycle-step { position: relative; padding-top: 44px; padding-right: 16px; }
+.lifecycle-step::before { content: ''; position: absolute; top: 8px; left: 0; width: 13px; height: 13px; border: 1px solid var(--gold); background: var(--paper); border-radius: 50%; }
+.lc-number { position: absolute; top: -2px; left: 24px; color: var(--gold); font-family: var(--display); font-size: 11px; letter-spacing: .08em; }
+.lifecycle-step h3 { text-transform: uppercase; font-size: 14px; letter-spacing: .07em; margin: 0 0 12px; }
+.lifecycle-step p { color: var(--muted); font-size: 11.5px; line-height: 1.9; margin: 0; }
+
+/* ---------- 05 UAE perspective — arch grid overlay on shared .uae-image ---------- */
+.arch-grid { position: absolute; inset: 0; pointer-events: none; opacity: .16; background-image: linear-gradient(to right, var(--gold-light) 1px, transparent 1px), linear-gradient(to bottom, var(--gold-light) 1px, transparent 1px); background-size: 14.28% 16.6%; }
+
+/* ---------- 06 Our people ---------- */
+.people-section { border-top: 1px solid var(--line); padding-top: 118px; padding-bottom: 145px; }
+.people-content .section-heading-row { margin-bottom: 80px; }
+.people-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: stretch; }
+.people-photo { position: relative; height: 100%; min-height: 480px; overflow: hidden; }
+.people-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.65); }
+.people-photo::after { content: ''; position: absolute; inset: 14px; border: 1px solid rgba(185,150,79,.55); pointer-events: none; }
+.people-list { display: flex; flex-direction: column; }
+.people-item { padding: 26px 0; border-top: 1px solid var(--line); }
+.people-item:last-child { border-bottom: 1px solid var(--line); }
+.people-item span { color: var(--gold); font-family: var(--display); font-size: 11px; letter-spacing: .1em; }
+.people-item h3 { text-transform: uppercase; font-size: 14px; letter-spacing: .07em; margin: 14px 0 10px; }
+.people-item p { color: var(--muted); font-size: 12.5px; line-height: 1.8; margin: 0; max-width: 340px; }
+
+/* ---------- 07 Our values ---------- */
+.values-section { border-top: 1px solid var(--line); padding-top: 112px; padding-bottom: 145px; }
+.values-content .section-heading-row { margin-bottom: 70px; }
+.values-list { border-top: 1px solid var(--line); }
+.value-row { display: grid; grid-template-columns: 56px 1fr 340px; align-items: center; gap: 30px; border-bottom: 1px solid var(--line); padding: 34px 0; position: relative; transition: padding .35s ease; }
+.value-row::before { content: ''; position: absolute; left: -1px; top: 0; bottom: 0; width: 2px; background: var(--gold); transform: scaleY(0); transform-origin: top; transition: transform .4s ease; }
+.value-row:hover, .value-row.is-in { padding-left: 22px; }
+.value-row:hover::before, .value-row.is-in::before { transform: scaleY(1); }
+.value-index { color: var(--gold); font-family: var(--display); font-size: 12px; letter-spacing: .08em; }
+.value-name { font-family: var(--display); font-weight: 500; letter-spacing: -.03em; font-size: clamp(30px, 4vw, 52px); margin: 0; transition: color .3s ease; }
+.value-row:hover .value-name { color: var(--gold); }
+.value-desc { color: var(--muted); font-size: 13px; line-height: 1.8; margin: 0; opacity: .75; transition: opacity .3s ease; }
+.value-row:hover .value-desc { opacity: 1; }
+
+/* ---------- 08 The ABS standard (dark, cinematic) ---------- */
+.standard-section { position: relative; overflow: hidden; background: var(--charcoal); color: var(--white); }
+.standard-bg { position: absolute; inset: -8% 0; z-index: 0; }
+.standard-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.4) brightness(.6); transform: scale(1.15); }
+.standard-overlay { position: absolute; inset: 0; z-index: 0; background: linear-gradient(115deg, rgba(17,17,17,.94) 0%, rgba(17,17,17,.9) 42%, rgba(17,17,17,.62) 100%); }
+.standard-lines { position: absolute; inset: 0; z-index: 0; opacity: .14; background-image: repeating-linear-gradient(128deg, transparent 0 68px, var(--gold) 68px 69px); background-size: 260px 100%; }
+.standard-inner { position: relative; z-index: 1; padding-top: 150px; padding-bottom: 155px; }
+.standard-marker { color: var(--gold); font-family: var(--display); font-weight: 700; font-size: 24px; }
+.standard-marker span { display: block; color: #7d776b; font-family: var(--sans); font-size: 10px; font-weight: 500; margin-top: 35px; letter-spacing: .1em; }
+.standard-content { max-width: 800px; }
+.standard-heading { font-family: var(--display); font-weight: 500; letter-spacing: -.045em; line-height: .98; font-size: clamp(48px, 6.4vw, 92px); margin: 0 0 46px; color: var(--white); }
+.standard-statement { color: var(--gold-light); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 700; margin: 0 0 26px; }
+.standard-copy { color: #a8a59d; font-size: 15px; line-height: 1.9; max-width: 560px; margin: 0; }
+
+/* ---------- 10 Final CTA — background photo behind the shared .contact-section
+   (scoped here in about.css only, so the homepage's own .contact-section,
+   which reuses the same class names, is unaffected) ---------- */
+.contact-bg { position: absolute; inset: -8% 0; z-index: 0; }
+.contact-bg img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.5) brightness(.55); transform: scale(1.12); }
+.contact-overlay { position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(17,17,17,.8), rgba(17,17,17,.88) 55%, rgba(17,17,17,.96)); }
+.contact-marker { position: relative; z-index: 2; }
+
+/* ---------- 09 Established for the long term ---------- */
+.longterm-section { border-top: 1px solid var(--line); padding-top: 112px; padding-bottom: 150px; }
+.longterm-content .section-heading-row { margin-bottom: 90px; }
+.longterm-track { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; position: relative; padding-top: 4px; }
+.longterm-line { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--gold); transform-origin: left; }
+.longterm-stage { padding-top: 46px; }
+.longterm-stage h3 { text-transform: uppercase; font-family: var(--display); font-size: clamp(26px, 3vw, 40px); letter-spacing: -.02em; font-weight: 600; margin: 0 0 14px; }
+.longterm-stage p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0; }
+
+/* ==========================================================================
+   Responsive — mirrors the breakpoints used across the site (900 / 650)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .story-grid { grid-template-columns: 1fr; gap: 50px; }
+  .story-visual { height: 380px; }
+  .exp-grid { gap: 0 30px; }
+  .diff-grid { grid-template-columns: 1fr; gap: 45px; }
+  .lifecycle-track { grid-template-columns: repeat(3, 1fr); gap: 40px 20px; }
+  .lifecycle-line { display: none; }
+  .people-grid { grid-template-columns: 1fr; gap: 45px; }
+  .people-photo { min-height: 340px; }
+  .value-row { grid-template-columns: 44px 1fr; }
+  .value-desc { grid-column: 2 / 3; max-width: 100%; margin-top: 12px; }
+  .longterm-track { gap: 20px 30px; }
+}
+
+@media (max-width: 650px) {
+  .story-section, .experience-section, .difference-section, .lifecycle-section, .people-section, .values-section, .longterm-section { padding-top: 78px; padding-bottom: 85px; }
+  .standard-inner { padding-top: 90px; padding-bottom: 95px; }
+  .story-grid { gap: 40px; }
+  .story-visual { height: 300px; padding-left: 24px; }
+  .story-image-wrap { inset: 0 0 0 24px; }
+  .experience-content .section-heading-row, .difference-content .section-heading-row, .lifecycle-content .section-heading-row, .people-content .section-heading-row, .values-content .section-heading-row, .longterm-content .section-heading-row { margin-bottom: 45px; }
+  .exp-grid { grid-template-columns: 1fr; gap: 0; }
+  .exp-item { padding: 30px 0; }
+  .exp-number { font-size: 50px; }
+  .diff-statement { font-size: clamp(24px, 7vw, 32px); }
+  .diff-left { gap: 32px; }
+  .diff-image { height: 220px; }
+  .diff-item summary { grid-template-columns: 30px 1fr 22px; padding: 20px 0; }
+  .diff-body { padding-left: 46px; padding-right: 0; }
+  .lifecycle-track { grid-template-columns: 1fr 1fr; gap: 34px 20px; }
+  .people-photo { min-height: 240px; }
+  .value-row { padding: 24px 0; grid-template-columns: 32px 1fr; gap: 16px; }
+  .value-name { font-size: clamp(26px, 9vw, 34px); }
+  .standard-heading { font-size: clamp(38px, 12vw, 54px); margin-bottom: 32px; }
+  .standard-marker { margin-bottom: 55px; }
+  .longterm-track { grid-template-columns: 1fr; gap: 34px; }
+  .longterm-line { display: none; }
+}
