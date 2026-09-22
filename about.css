@@ -5,8 +5,6 @@
    This file styles only the sections unique to the About page.
    ========================================================================== */
 
-.desktop-nav a.is-current { color: var(--gold); }
-
 /* ---------- 01 Our story ---------- */
 .story-section { border-top: 1px solid var(--line); padding-top: 120px; padding-bottom: 140px; }
 .story-grid { display: grid; grid-template-columns: 1fr .82fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
